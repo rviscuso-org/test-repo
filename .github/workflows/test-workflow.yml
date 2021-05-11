@@ -2,7 +2,7 @@ name: test-workflow
 on: [push]
 jobs:
   bootstrap-node:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -10,7 +10,7 @@ jobs:
       - run: ls /
       - run: tree -L 2 /
   job-one:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Dump GitHub context
         env:
