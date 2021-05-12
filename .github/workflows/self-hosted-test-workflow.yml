@@ -14,7 +14,8 @@ jobs:
          - name: Log the node version
            run: |
              node -v
-             cat /etc/os-release   
+             npm -v
+             cat /etc/os-release
   context-job:
     runs-on: self-hosted
     steps:
