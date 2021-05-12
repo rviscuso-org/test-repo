@@ -1,12 +1,21 @@
-name: test-workflow
+name: self-hosted-test-workflow
 on: [push]
 jobs:
-  bootstrap-node:
+  command-job:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - run: tree -L 2 /
-  job-one:
+  container-job:
+    runs-on: self-hosted
+    container:
+      image: node:14.15.0-alpine3.12
+    steps:
+         - name: Log the node version
+           run: |
+             node -v
+             cat /etc/os-release   
+  context-job:
     runs-on: self-hosted
     steps:
       - name: Dump GitHub context
