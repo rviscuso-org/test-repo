@@ -15,6 +15,13 @@ jobs:
            run: |
              node -v
              cat /etc/os-release
+  docker-step-job:
+    runs-on: self-hosted
+    steps:
+      - name: pull image
+        run:  |
+          docker pull alpine
+          docker run --rm alpine cat /etc/*-release
   context-job:
     runs-on: self-hosted
     steps:
