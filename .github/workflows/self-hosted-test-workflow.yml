@@ -6,15 +6,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: tree -L 2 /
-#   container-job:
-#     runs-on: self-hosted
-#     container:
-#       image: node:14.15.0-alpine3.12
-#     steps:
-#          - name: Log the node version
-#            run: |
-#              node -v
-#              cat /etc/os-release
+  container-job:
+    runs-on: self-hosted
+    container:
+      image: node:14.15.0-alpine3.12
+    steps:
+         - name: Log the node version
+           run: |
+             node -v
+             cat /etc/os-release
 #   docker-step-job:
 #     runs-on: self-hosted
 #     steps:
