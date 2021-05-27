@@ -1,5 +1,10 @@
-on: workflow_dispatch
-
+on: 
+  workflow_dispatch:
+    inputs:
+      callbackId:
+        description: 'callbackId for correlation with outbound request'
+        required: true
+      
 jobs:
   hello-world:
     runs-on: ubuntu-18.04
