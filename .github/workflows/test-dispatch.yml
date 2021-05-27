@@ -6,3 +6,5 @@ jobs:
     steps:
       - name: say-hello
         run: echo "hello world!!!!!"
+      - name: display callbackId
+        run: echo "callbackId ${{ github.event.inputs.home }} "
