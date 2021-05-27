@@ -9,7 +9,7 @@ jobs:
   hello-world:
     runs-on: ubuntu-18.04
     steps:
-      - name: say-hello
-        run: echo "hello world!!!!!"
+      - name: github context
+        run: echo ${{ toJSON(github) }}
       - name: display callbackId
         run: echo "callbackId ${{ github.event.inputs.home }} "
