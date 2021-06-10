@@ -1,0 +1,14 @@
+on: 
+  workflow_dispatch:
+
+  push:
+    branches-ignore:
+      - '**'
+
+      
+jobs:
+  hello-world:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: display callbackId
+        run: echo "hello world!"
