@@ -21,7 +21,7 @@ jobs:
         uses: ./actions/delayed
         with: 
           shouldFail: false
-          name: ${{needs.success1.outputs.res}}
+          msg: ${{needs.success1.outputs.res}}
   failure2:
     needs: success1
     runs-on: ubuntu-18.04
@@ -32,6 +32,6 @@ jobs:
         uses: ./actions/delayed
         with: 
           shouldFail: true
-          name: ${{needs.success1.outputs.res}}
+          msg: 'hey'
 
       
