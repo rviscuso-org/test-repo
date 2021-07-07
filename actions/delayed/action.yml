@@ -6,6 +6,8 @@ inputs:
     description: 'If set to true causes the action to fail'
   msg:
     description: 'An input value'
+  delay:
+    description: 'the delay'
 outputs:
   res:
     description: 'The result'
