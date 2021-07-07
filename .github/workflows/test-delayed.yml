@@ -2,17 +2,17 @@ on:
   workflow_dispatch:
       
 jobs:
-  delayed-success-1:
+  success1:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - name: success1
+      - name: s1
         uses: ./actions/delayed
     outputs:
-      res: ${{steps.success1.outputs.res}}
-  delayed-success-2:
-    needs: delayed-success-1
+      res: ${{steps.s1.outputs.res}}
+  success2:
+    needs: success1
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -21,9 +21,9 @@ jobs:
         uses: ./actions/delayed
         with: 
           shouldFail: false
-          name: ${{needs.delayed-success-1.outputs.res}}
-  delayed-failure-2:
-    needs: delayed-success-1
+          name: ${{needs.success1.outputs.res}}
+  failure2:
+    needs: success1
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -32,6 +32,6 @@ jobs:
         uses: ./actions/delayed
         with: 
           shouldFail: true
-          name: ${{needs.delayed-success-1.outputs.res}}
+          name: ${{needs.success1.outputs.res}}
 
       
