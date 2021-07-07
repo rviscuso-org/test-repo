@@ -2,6 +2,7 @@ const core = require('@actions/core');
 
 const shouldFail = core.getInput('shouldFail')
 const msg = core.getInput('msg')
+const delay = core.getInput('delay') || 15000
 
 core.info('starting timer');
 const start = Date.now()
@@ -12,4 +13,4 @@ setTimeout(() => {
   if(shouldFail == 'true') {
     core.setFailed('failed');
   }
-}, 30000)
+}, delay)
