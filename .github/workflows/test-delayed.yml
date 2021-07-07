@@ -9,10 +9,11 @@ jobs:
       - run: yarn install
       - name: s1
         uses: ./actions/delayed
+      - run: echo ${{steps.s1.outputs}}
       - name: s2
         uses: ./actions/delayed
         with:
-          msg: ${{steps.s1.output.res}}
+          msg: ${{steps.s1.outputs.res}}
     outputs:
       res: ${{steps.s2.outputs.res}}
   success2:
