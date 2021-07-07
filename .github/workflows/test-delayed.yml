@@ -5,12 +5,14 @@ jobs:
   delayed-failure-1:
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v2
       - name: part 1
         uses: ./actions/delayed
   delayed-failure-2:
     needs: delayed-failure-1
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v2
       - name: part 2
         uses: ./actions/delayed
 
