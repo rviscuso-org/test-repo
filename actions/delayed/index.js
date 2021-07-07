@@ -6,6 +6,7 @@ const name = core.getInput('name')
 core.info('starting timer');
 const start = Date.now()
 setTimeout(() => {
+  core.info({name});
   core.info('timer is over: ' + (Date.now() - start));
   core.setOutput('res', name + '_' + start);
   if(shouldFail == 'true') {
