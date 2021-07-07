@@ -4,7 +4,7 @@ description: delayed failure
 inputs:
   shouldFail:
     description: 'If set to true causes the action to fail'
-  name:
+  msg:
     description: 'An input value'
 outputs:
   res:
