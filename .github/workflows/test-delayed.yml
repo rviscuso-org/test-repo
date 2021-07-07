@@ -8,8 +8,9 @@ jobs:
       - uses: actions/checkout@v2
       - run: yarn install
       - name: s1
+        id: s1 # id IS NEEDED TO REFERENCE THIS!
         uses: ./actions/delayed
-      - run: echo ${{steps.s1.outputs}}
+      - run: echo ${{steps.s1.outputs.res}}
       - name: s2
         uses: ./actions/delayed
         with:
