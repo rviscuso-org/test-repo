@@ -1,6 +1,9 @@
 name: delayed
 author: rviscuso
 description: delayed failure
+inputs:
+  shouldFail:
+    description: 'If set to true causes the action to fail'
 outputs:
   res:
     description: 'The result'
