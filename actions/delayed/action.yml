@@ -4,6 +4,8 @@ description: delayed failure
 inputs:
   shouldFail:
     description: 'If set to true causes the action to fail'
+  name:
+    description: 'An input value'
 outputs:
   res:
     description: 'The result'
