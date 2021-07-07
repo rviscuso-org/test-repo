@@ -1,0 +1,9 @@
+name: delayed
+author: rviscuso
+description: delayed failure
+outputs:
+  res:
+    description: 'The result'
+runs:
+  using: 'node12'
+  main: 'index.js'
