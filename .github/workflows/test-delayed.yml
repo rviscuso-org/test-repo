@@ -9,8 +9,12 @@ jobs:
       - run: yarn install
       - name: s1
         uses: ./actions/delayed
+      - name: s2
+        uses: ./actions/delayed
+        with:
+          msg: ${{steps.s1.output.res}}
     outputs:
-      res: ${{steps.s1.outputs.res}}
+      res: ${{steps.s2.outputs.res}}
   success2:
     needs: success1
     runs-on: ubuntu-18.04
