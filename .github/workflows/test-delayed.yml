@@ -2,20 +2,30 @@ on:
   workflow_dispatch:
       
 jobs:
-  delayed-failure-1:
+  delayed-success-1:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - name: part 1
+      - name: success 1
+        uses: ./actions/delayed
+  delayed-success-2:
+    needs: delayed-success-1
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn install
+      - name: success 2
         uses: ./actions/delayed
   delayed-failure-2:
-    needs: delayed-failure-1
+    needs: delayed-success-1
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
       - name: part 2
         uses: ./actions/delayed
+        with: 
+          shouldFail: true
 
       
