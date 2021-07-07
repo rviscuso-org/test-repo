@@ -7,25 +7,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - name: success 1
+      - name: success1
         uses: ./actions/delayed
+    outputs:
+      res: ${{steps.success1.outputs.res}}
   delayed-success-2:
     needs: delayed-success-1
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - name: success 2
+      - name: success2
         uses: ./actions/delayed
+        with: 
+          shouldFail: false
+          name: ${{needs.delayed-success-1.outputs.res}}
   delayed-failure-2:
     needs: delayed-success-1
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - name: part 2
+      - name: part2
         uses: ./actions/delayed
         with: 
           shouldFail: true
+          name: ${{needs.delayed-success-1.outputs.res}}
 
       
