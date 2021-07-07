@@ -1,5 +1,7 @@
 name: self-hosted-test-workflow
-on: [push]
+on: 
+  workflow_dispatch:
+      
 jobs:
   command-job:
     runs-on: ubuntu-18.04
