@@ -1,0 +1,17 @@
+on: 
+  workflow_dispatch:
+      
+jobs:
+  delayed-failure-1:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: part 1
+        uses: ./actions/delayed
+  delayed-failure-2:
+    needs: delayed-failure-1
+    runs-on: ubuntu-18.04
+    steps:
+      - name: part 2
+        uses: ./actions/delayed
+
+      
