@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 
-const delay = require('../../delay');
+const delayModule = require('../../delay');
 
 const shouldFail = core.getInput('shouldFail')
 const msg = core.getInput('msg')
